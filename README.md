@@ -1,17 +1,13 @@
--- Replace 'YOUR_ANIMATION_ID' with your actual animation asset ID.
 local ANIMATION_ID = "507771955"
 
--- Get the player's character and humanoid.
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
 
--- Load the animation.
 local animation = Instance.new("Animation")
 animation.AnimationId = "rbxassetid://" .. ANIMATION_ID
 local animationTrack = humanoid:LoadAnimation(animation)
 
--- Function to play the animation when 'E' is pressed.
 local function onInputBegan(input, gameProcessed)
     if gameProcessed then return end
 
@@ -24,5 +20,4 @@ local function onInputBegan(input, gameProcessed)
     end
 end
 
--- Connect the InputBegan event.
 game:GetService("UserInputService").InputBegan:Connect(onInputBegan)
